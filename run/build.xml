@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ANT complete project compiler" default="all">
+	
+	<property file="../config/project.properties"/>
+	
+	<property name="client.resource.compile" value="project.Main" />
+	<property name="client.resource.context" value="project.war" />	
+	<property name="client.resource" value="project.war" />
+	
+	<target name="all" depends="Cleanup,BuildServlets,BuildPersistence,BuildCrawler" />
+	<target name="build-all" depends="BuildBeans,BuildServlets" />
+	
+	
+	<target name="Cleanup" description="Clean up jars from bin">		
+		<delete dir="${project.bin}" includes="*.sar,*.jar,*.har,*.xml,*.war" />
+		
+		<delete dir="../${client.resource}" />
+		<delete dir="../${client.resource.context}"/>		
+	</target>
+	
+	
+	<target name="BuildBeans" description="Create a jar archive with all beans">
+		<jar destfile="${project.bin}/${project.packaging.jar}">
+			<zipfileset dir="${project.bin}" includes="**/*.class,**/client/persistence/*.class" excludes="**/client/*.class,**/client/gadgets/**/*.class,**/client/rpc/**/*.class,**/servlets/**/*.class" />
+		</jar>
+		
+		<delete file="${server.cp}/${application.dir}/${project.packaging.jar}" />
+		<copy file = "${project.bin}/${project.packaging.jar}" todir="${server.cp}/${application.dir}" />
+	</target>
+	
+	
+	<target name="BuildPersistence" description="Create persistence sar archive">
+		
+		<!-- First move connectionManager-service.xml to /bin directory, renaming it to 
+		     jboss-service.xml -->
+		
+		<copy file="../config/mbeans/persistence-service.xml" 
+			  tofile="${project.bin}/jboss-service.xml" overwrite="true" />
+		
+		<jar destfile="${project.bin}/${project.persistence.sar}">
+			<zipfileset dir="${project.bin}" includes="**/persistence/hibernate/*.class,**/statistics/**/*.class" />
+			<zipfileset file="${project.bin}/jboss-service.xml" prefix="META-INF"/>			
+		</jar>
+		
+		<delete file="${server.cp}/${application.dir}/${project.persistence.sar}" />
+		<copy file="${project.bin}/${project.persistence.sar}"    todir="${server.cp}/${application.dir}" />		
+	</target>
+	
+		
+	<target name="BuildConnectionManager" description="Create ConnectionManager MBean sar archive">
+		
+		<!-- First move connectionManager-service.xml to /bin directory, renaming it to 
+		     jboss-service.xml -->
+		
+		<copy file="../config/mbeans/connectionManager-service.xml" 
+			  tofile="${project.bin}/jboss-service.xml" overwrite="true" />
+		
+		<jar destfile="${project.bin}/${mbeans.manager.sar}">
+			<zipfileset dir="${project.bin}" includes="**/mbeans/database/**/*.class" />
+			<zipfileset file="${project.bin}/jboss-service.xml" prefix="META-INF"/>
+		</jar>
+		
+		<delete file="${server.cp}/${application.dir}/${mbeans.manager.sar}" />		
+		<copy file="${project.bin}/${mbeans.manager.sar}" todir="${server.cp}/${application.dir}" />		
+	</target>
+	
+	
+	
+	<target name="BuildCrawler" description="Create Crawler MBean sar archive">
+		<jar destfile="${project.bin}/${mbeans.crawler.sar}">
+			<zipfileset dir="${project.bin}" includes="**/mbeans/crawlers/**/*.class,**/builder/**/*.class,**/ObjectLooseProperties.class" />
+			<zipfileset file="../config/mbeans/crawlers/jboss-service.xml" prefix="META-INF"/>
+		</jar>
+		
+		<delete file="${server.cp}/${application.dir}/${mbeans.crawler.sar}" />		
+		<copy file="${project.bin}/${mbeans.crawler.sar}"     todir="${server.cp}/${application.dir}" />		
+	</target>
+	
+	
+	<target name="BuildMessageProcessing" description="Create message processing MBean sar archive">
+		<jar destfile="${project.bin}/${mbeans.processing.sar}">
+			<zipfileset dir="${project.bin}" includes="**/" />
+			<zipfileset file="../config/mbeans/crawlers/jboss-service.xml" prefix="META-INF"/>
+		</jar>
+		
+		<delete file="${server.cp}/${application.dir}/${mbeans.crawler.sar}" />		
+		<copy file="${project.bin}/${mbeans.crawler.sar}"     todir="${server.cp}/${application.dir}" />		
+	</target>
+	
+	
+	<target name="BuildAnalysis" description="Create Analysis MBean sar archive">
+		<jar destfile="${project.bin}/${mbeans.analysis.sar}">
+			<zipfileset dir="${project.bin}" includes="**/mbeans/analysis/**/*.class,**/statistics/**/*.class,**/utils/collocation/**/*.class" />
+			<zipfileset file="../config/mbeans/analysis/jboss-service.xml" prefix="META-INF"/>
+		</jar>
+		
+		<delete file="${server.cp}/${application.dir}/${mbeans.analysis.sar}" />		
+		<copy file="${project.bin}/${mbeans.analysis.sar}" todir="${server.cp}/${application.dir}" />		
+	</target>		
+	
+	
+	<target name="BuildServlets" description="Create servlets war archive">
+		<jar destfile="${project.bin}/${project.servlets}">
+			<zipfileset dir="${project.bin}" includes="**/servlets/**/*.class,**/rpc/*.class"/>
+			
+			<zipfileset dir="../config/" prefix="WEB-INF">
+				<include name="web.xml"/>
+			</zipfileset>			
+		</jar>
+		
+		<delete file="${server.cp}/${application.dir}/${project.servlets}" />
+		<copy file="${project.bin}/${project.servlets}" todir="${server.cp}/${application.dir}" />
+	</target>
+	
+	
+	<target name="Cleanup-before-build" description="Initial cleanup">
+		<delete dir="../${client.resource}" />
+		<delete dir="../${client.resource.context}" />
+		<mkdir dir="../${client.resource}"/>
+		<mkdir dir="../${client.resource}/${client.resource.compile}" />
+	</target>	
+	
+	<target name="J2js" description="Java->JavaScript">
+		<exec executable="./gwt_compile" dir=".">
+			<arg value="../${client.resource}" />
+			<arg value="${client.resource.compile}" />
+			<arg value="../libs/gwt-user.jar:../libs/gwt-dev-linux.jar" />
+		</exec>
+		
+	  	<copy todir="../${client.resource.context}">
+			<fileset dir="../${client.resource}/${client.resource.compile}" />
+		</copy>
+		
+		<delete dir="../${client.resource}/${client.resource.compile}" />
+		
+		<copy todir="${server.cp}/${application.dir}/${client.resource.context}">
+			<fileset dir="../${client.resource.context}"/>			
+		</copy>		
+	</target>
+
+	
+	<target name="Cleanup-after-build" description="Final cleanup">
+		<delete dir="../${client.resource}" />		
+	</target>
+		
+	<target name="Deploy" description="Deployment">
+		<delete dir="${server.cp}/${application.dir}/${client.resource.context}" />
+		<mkdir  dir="${server.cp}/${application.dir}/${client.resource.context}"/>
+		<chmod  dir="${server.cp}/${application.dir}/${client.resource.context}" perm="a+rw" />
+		
+		<copy todir="${server.cp}/${application.dir}/${client.resource.context}">
+			<fileset dir="../${client.resource.context}"/>			
+		</copy>
+	</target>		
+		
+</project>

@@ -1,0 +1,5 @@
+<!-- The SAR META-INF/jboss-service.xml descriptor -->
+<server>
+	<mbean code = "project.core.mbeans.crawlers.ThreadCrawler" name = "crawler-bean:service=Crawling">
+	</mbean>
+</server>

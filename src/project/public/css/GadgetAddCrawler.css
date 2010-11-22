@@ -1,0 +1,26 @@
+
+
+.addCrawler {
+	border : 1px solid black;
+	font-family:arial,sans-serif;
+}
+
+
+.addCrawler .hPanel {
+	padding : 2px;
+}
+
+
+.addCrawler .hPanel .label {
+	width : 200px;
+}
+
+
+.addCrawler .hPanel .textbox {
+	border : 1px solid lightgrey;	
+}
+
+
+.addCrawler .hPanel .btnOk {
+}
+

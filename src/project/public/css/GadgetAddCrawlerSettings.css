@@ -1,0 +1,23 @@
+.addCrawlerSettings {
+	border : 1px solid black;
+}
+
+
+.addCrawlerSettings .hPanel {
+	padding : 2px;
+}
+
+
+.addCrawlerSettings .hPanel .label {
+	width : 200px;
+}
+
+
+.addCrawlerSettings .hPanel .textbox {
+	border : 1px solid grey;
+}
+
+
+.addCrawlerSettings .btnOk {
+	padding : 5px;
+}

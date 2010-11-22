@@ -1,0 +1,9 @@
+
+<server>
+	<mbean code = "project.core.mbeans.processing.MessageProcessing" 
+	       name = "project-mbeans:service=MessageProcessing">
+	       
+	       <depends>project-mbeans:service=DatabaseConnection</depends>
+	       <depends>project-mbeans:service=PersistenceLoader</depends>	       
+	</mbean>
+</server>

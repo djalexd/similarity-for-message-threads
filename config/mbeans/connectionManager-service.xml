@@ -1,0 +1,7 @@
+
+<server>
+	<mbean code = "project.core.mbeans.database.ConnectionManager" 
+	       name = "project-mbeans:service=DatabaseConnection">
+	       
+	</mbean>
+</server>

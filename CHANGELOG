@@ -1,0 +1,65 @@
+
+
+
+31.05.2009
+- started working on official document. This will take
+aproximately 5 days
+
+30.05.2009
+- improved application design.
+- messages are processed by 'MessageProcessor' and 'MessageLinkProcessor'
+before they would be inserted in database.
+- added word spelling, stemming.
+- code size : 273k
+
+
+28.05.2009
+- started crawling again
+- MyVisistor now find a message's parent (will build social
+network with this information)
+- new functionality : text similarity
+
+25.05.2009
+- started crawling for the 3rd time :(
+ 
+
+23.05.2009
+- 90k+ of sentences in database ;)
+
+22.05.2009
+- updated crawler code (it now inserts a new message board
+if none is found)
+- analysis core functions: word frequency, word synonyms (with
+database word match), word validation (partial, see docs),
+- adapted collocation methods for Sentence processing
+- source size: 152k (removed some code)
+
+
+21.05.2009
+- removed Hibernate code
+- started using JDBC API calls (transaction API)
+- crawler is working
+- started working on analysis core functionality
+- source size: 172k
+
+
+20.05.2009
+- Hibernate persistence classes are finally coded
+- second generation crawler are coded. MessageThreads and
+Messages are saved directly in database (experimental)
+- source size: 144k
+
+
+18.05.2009
+- first generation crawler is up and working. The current
+sites crawler are Google-Web-Toolkit group (hosted on
+groups.google.com)
+- initial sample is 4Mb in size (~ 900 message threads)
+- started work on Hibernate persistent classes
+- source size: 110k
+
+
+10.05.2009
+- persistence classes defined
+- XML file-based database is working (another project)
+- source size (except XML file-based database): 50k

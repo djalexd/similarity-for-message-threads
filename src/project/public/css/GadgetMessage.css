@@ -1,0 +1,48 @@
+
+.Message {
+	font-family:arial,sans-serif;	
+}
+
+
+.Message .header {
+	background-color : rgb(26,160,222);
+	border : 1px solid rgb(80,192,244);
+	-moz-border-radius-topright : 8px;
+	-moz-border-radius-topleft : 8px;
+	 
+	padding : 5px;
+	margin-bottom : 5px;
+}
+
+
+.Message .header .panel {
+	font-size : smaller;
+}
+
+
+.Message .header .panel .label {
+	padding : 1px;
+}
+
+
+.Message .header .panel .label-info {
+	font-weight : 900;
+	margin-right : 5px;
+	margin-left : 5px;	
+}
+
+.Message .header .panel .label-link {
+	color : lightgrey;
+	font-style : italic;
+	cursor : pointer;
+}
+
+
+.Message .content {
+	
+}
+
+
+.Message .content .html {
+	
+}

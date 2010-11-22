@@ -1,0 +1,26 @@
+
+
+.StatisticsPage {
+}
+
+
+.StatisticsPage .panel {
+}
+
+
+.StatisticsPage .panel .html {
+}
+
+
+.StatisticsPage .panel .panel {
+	padding : 2px;
+	margin-left : 20px;
+}
+
+.StatisticsPage .panel .panel .label {
+	width : 250px;
+}
+
+.StatisticsPage .panel .panel .label-info {
+	font-style : italic;
+}

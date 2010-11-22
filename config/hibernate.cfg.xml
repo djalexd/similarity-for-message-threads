@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">gwtebas</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bachelor_project</property>
+        <property name="hibernate.connection.username">ebas</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>        
+        
+		<!-- Echo all executed SQL to stdout  -->
+        <property name="show_sql">false</property>
+        
+        <!-- Map the persistence classes       -->
+        <mapping resource="project/persistence/hibernate/Language.hbm.xml"/>
+        <mapping resource="project/persistence/hibernate/Word.hbm.xml"/>         
+        <mapping resource="project/persistence/hibernate/Sentence.hbm.xml"/>
+        <mapping resource="project/persistence/hibernate/Message.hbm.xml"/>
+        <mapping resource="project/persistence/hibernate/MessageBoard.hbm.xml"/>
+        <mapping resource="project/persistence/hibernate/MessageThread.hbm.xml"/>
+        <mapping resource="project/persistence/hibernate/User.hbm.xml"/>
+        
+    </session-factory>
+</hibernate-configuration>

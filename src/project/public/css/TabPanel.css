@@ -1,0 +1,17 @@
+
+.gwt-TabPanel {
+	
+}
+
+
+.gwt-TabBarItem {
+	margin-left : 5px;
+	margin-right : 5px;
+	background-color : rgb(26,160,222);
+}
+
+
+.gwt-TabBarItem-selected {
+	background-color: white;	
+	border-bottom : 1px solid lightgrey;	
+}

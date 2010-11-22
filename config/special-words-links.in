@@ -1,0 +1,14 @@
+exception servlet 0.25
+exception gwt 0.25
+servlet gwt 0.05
+servlet host 0.10
+servlet loader 0.05
+gwt listener 0.25
+gwt event 0.25
+gwt widget 0.35
+gwt callback 0.35
+gwt frame 0.15
+listener event 0.35
+listener widget 0.15
+event callback 0.25
+class loader 0.35

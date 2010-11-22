@@ -1,0 +1,43 @@
+	
+.search {
+	border : 1px solid black;
+	font-family:arial,sans-serif;	
+}
+
+
+.search .hPanel {
+	padding : 2px;	
+}
+
+.search .hPanel .label {
+}
+
+.search .hPanel .textbox {
+	border : 1px solid lightgrey;	
+}
+
+.search .hPanel .btnOk {
+}
+
+.search .contentPanel {
+	padding : 5px;
+}
+
+.search .contentPanel .message {
+		border : 1px solid lightgrey;
+		margin-bottom : 2px;
+		margin-top : 2px;
+		padding-bottom : 5px;
+}
+
+
+.noMessage {
+	margin-top : 10px;
+	margin-bottom : 10px;
+}
+
+
+.noMessage .html {
+	font-size : larger;
+	padding : 2px;
+}

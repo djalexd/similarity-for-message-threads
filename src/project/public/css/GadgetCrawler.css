@@ -1,0 +1,46 @@
+
+.Crawler {
+	font-family:arial,sans-serif;
+	background-color : rgb(26,160,222);	
+	border : 1px solid rgb(80,192,244);
+	-moz-border-radius : 5px;
+	margin-bottom : 5px;
+	margin-top : 5px;
+}
+
+.Crawler .panel {
+	padding : 5px;
+}
+
+.Crawler .panel .name {
+	font-size : larger;
+	width : 150px;
+}
+
+.Crawler .panel .active {
+	font-style : italic;
+	color : lightgrey;
+	cursor : pointer;	
+}
+
+.Crawler .panel .inactive {
+	font-style : italic;
+	color : lightgrey;
+	cursor : pointer;
+}
+
+.Crawler .panel .label {
+	width : 150px;
+	font-size : smaller;
+}
+
+.Crawler .panel .label-info {
+	font-style : italic;
+}
+
+.Crawler .panel .edit {
+	font-style : italic;
+	cursor : pointer;
+	font-size : smaller;
+	color : lightgrey;
+}

@@ -1,0 +1,2 @@
+#!/bin/sh
+java -Xmx512M -cp "../src:../bin:$3" com.google.gwt.dev.GWTCompiler -style PRETTY -out "$1" "$@" "$2";

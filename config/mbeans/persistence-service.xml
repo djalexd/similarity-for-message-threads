@@ -1,0 +1,8 @@
+
+<server>
+	<mbean code = "project.client.persistence.hibernate.PersistenceLoader" 
+	       name = "project-mbeans:service=PersistenceLoader">
+	       
+	       <depends>project-mbeans:service=DatabaseConnection</depends>	       
+	</mbean>
+</server>
