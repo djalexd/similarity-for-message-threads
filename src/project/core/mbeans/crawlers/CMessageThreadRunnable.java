@@ -12,11 +12,11 @@ import project.utils.statistics.ObjectLooseProperties;
 import project.client.persistence.Message;
 import project.client.persistence.MessageThread;
 import project.client.persistence.User;
-import project.core.mbeans.database.ConnectionManager;
+import project.core.mbeans.database.ConnectionManagerMysqlImpl;
 import project.core.mbeans.processing.MessageProcessingMBean;
 import project.core.persistence.PersistenceLoaderMBean;
 
-public class CMessageThreadRunnable extends ConnectionManager implements IMessageThreadRunnable {
+public class CMessageThreadRunnable extends ConnectionManagerMysqlImpl implements IMessageThreadRunnable {
 
 	private transient PersistenceLoaderMBean loader = null;
 	private transient MessageProcessingMBean processor = null;

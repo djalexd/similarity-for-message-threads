@@ -32,5 +32,7 @@
 	<classpathentry kind="lib" path="libs/jboss-annotations-ejb3.jar"/>
 	<classpathentry kind="lib" path="libs/jboss-ejb3.jar"/>
 	<classpathentry kind="lib" path="libs/jboss-ejb3x.jar"/>
+	<classpathentry kind="lib" path="libs/aopalliance.jar"/>
+	<classpathentry kind="lib" path="libs/guice-2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

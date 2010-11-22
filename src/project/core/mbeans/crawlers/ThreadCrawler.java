@@ -19,14 +19,14 @@ import org.jboss.annotation.ejb.SerializedConcurrentAccess;
 import org.jboss.annotation.ejb.cache.simple.CacheConfig;
 
 
-import project.core.mbeans.database.ConnectionManager;
+import project.core.mbeans.database.ConnectionManagerMysqlImpl;
 import project.utils.statistics.ObjectLooseProperties;
 
 @Stateful
 @RemoteBinding(jndiBinding="ThreadCrawler")
 @SerializedConcurrentAccess
 @CacheConfig(removalTimeoutSeconds=18000L)
-public class ThreadCrawler extends ConnectionManager implements ThreadCrawlerMBean {
+public class ThreadCrawler extends ConnectionManagerMysqlImpl implements ThreadCrawlerMBean {
 
 	private transient Connection connection = null;
 

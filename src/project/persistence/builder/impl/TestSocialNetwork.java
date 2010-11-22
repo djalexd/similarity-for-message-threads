@@ -14,12 +14,12 @@ import java.util.TreeMap;
 
 import project.client.utils.FloatSparseMatrix;
 import project.client.utils.SparseMatrix;
-import project.core.mbeans.database.ConnectionManager;
+import project.core.mbeans.database.ConnectionManagerMysqlImpl;
 import sun.security.krb5.internal.LocalSeqNumber;
 
 public class TestSocialNetwork {
 
-	private ConnectionManager manager = null;
+	private ConnectionManagerMysqlImpl manager = null;
 
 	private int size;
 	private float density, deviation;
@@ -30,7 +30,7 @@ public class TestSocialNetwork {
 	private Map<Integer,Float> localMessageSize;
 
 	public TestSocialNetwork () {
-		manager = new ConnectionManager ();
+		manager = new ConnectionManagerMysqlImpl ();
 		manager.setConnectionParams("ebas", "gwtebas", "bachelor_project");
 
 		connectivity = new FloatSparseMatrix ();

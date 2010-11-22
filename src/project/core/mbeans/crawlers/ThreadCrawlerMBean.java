@@ -7,8 +7,16 @@ import javax.ejb.Remote;
 @Remote
 public interface ThreadCrawlerMBean {
 
+	/**
+	 * @deprecated Why would you start / stop a crawler? 
+	 */
+	@Deprecated
 	public void start ();
 	
+	/**
+	 * @deprecated Why would you start / stop a crawler?
+	 */
+	@Deprecated
 	public void stop ();
 	
 	/**
@@ -44,7 +52,10 @@ public interface ThreadCrawlerMBean {
 	/**
 	 * Returns the set of crawlers from database
 	 * @return
+	 * 
+	 * @deprecated Don't return a weak-typed {@link Map}
 	 */
+	@Deprecated
 	public Map<String, Map<String,String>> getCrawlers ();
 	
 	/**

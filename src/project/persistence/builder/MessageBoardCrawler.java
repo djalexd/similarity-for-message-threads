@@ -1,6 +1,5 @@
 package project.persistence.builder;
 
-import java.net.MalformedURLException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,8 +13,7 @@ public interface MessageBoardCrawler extends Iterator<MessageBoardCrawler> {
 	 * code is web app specific
 	 * @param url
 	 */
-	public void initCrawler (Object[] params)
-					throws MalformedURLException, IllegalArgumentException;
+	public void initCrawler (Object[] params);
 
 	
 	public MessageBoard getMessageBoard ();

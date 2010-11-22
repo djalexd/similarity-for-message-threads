@@ -30,7 +30,7 @@ import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
 
 import project.client.persistence.Message;
-import project.core.mbeans.database.ConnectionManager;
+import project.core.mbeans.database.ConnectionManagerMysqlImpl;
 import project.core.mbeans.processing.MessageProcessingMBean;
 import project.core.persistence.PersistenceLoaderMBean;
 import project.persistence.properties.MessageWithProperties;
@@ -39,7 +39,7 @@ import project.utils.statistics.impl.Stemmer;
 @Stateful
 @RemoteBinding(jndiBinding="MessageBaseProcessor")
 @CacheConfig(removalTimeoutSeconds=18000L)
-public class MessageBaseProcessor extends ConnectionManager implements MessageBaseProcessorMBean {
+public class MessageBaseProcessor extends ConnectionManagerMysqlImpl implements MessageBaseProcessorMBean {
 
 	private static final String WORD_INPUT_DELIMITERS = "[ \t\r\n:*)(,%^&*$#/~!;.?`'\"-]";	
 	private static final String STR_DICTIONARY_LOCATION = "/home/alexd/workspace/proiect-diploma/input/dict";

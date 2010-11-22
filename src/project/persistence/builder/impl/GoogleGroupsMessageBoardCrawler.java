@@ -173,8 +173,7 @@ public class GoogleGroupsMessageBoardCrawler extends BaseHttpClient implements M
 	}
 
 
-	public void initCrawler(Object[] params) throws MalformedURLException,
-	IllegalArgumentException {		
+	public void initCrawler(Object[] params) throws IllegalArgumentException {		
 
 		try {
 

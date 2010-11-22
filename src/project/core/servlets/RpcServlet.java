@@ -25,8 +25,8 @@ import project.client.persistence.User;
 import project.client.rpc.RpcInterface;
 import project.core.mbeans.analysis.MessageBaseProcessorMBean;
 import project.core.mbeans.crawlers.ThreadCrawlerMBean;
+import project.core.mbeans.database.ConnectionManagerMysqlImpl;
 import project.core.mbeans.database.ConnectionManager;
-import project.core.mbeans.database.ConnectionManagerMBean;
 import project.core.mbeans.search.MessageSeachMBean;
 import project.core.persistence.PersistenceLoaderMBean;
 import project.persistence.properties.MessageWithProperties;
@@ -58,7 +58,7 @@ public class RpcServlet extends RemoteServiceServlet implements RpcInterface {
 			System.out.println("Servlet init");			
 			InitialContext context = new InitialContext();
 			
-			ConnectionManagerMBean man = new ConnectionManager ();
+			ConnectionManager man = new ConnectionManagerMysqlImpl ();
 			man.setConnectionParams("ebas", "gwtebas", "bachelor_project");
 			connection = man.getConnection();
 			

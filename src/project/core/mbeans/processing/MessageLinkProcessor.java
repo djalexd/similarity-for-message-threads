@@ -28,8 +28,7 @@ import org.jboss.annotation.ejb.cache.simple.CacheConfig;
 import com.google.gwt.user.server.rpc.UnexpectedException;
 
 import project.client.persistence.Message;
-import project.core.mbeans.database.ConnectionManager;
-import project.core.mbeans.database.JndiBinder;
+import project.core.mbeans.database.ConnectionManagerMysqlImpl;
 import project.core.persistence.PersistenceLoaderMBean;
 import project.persistence.properties.MessageWithProperties;
 import project.utils.statistics.MessageSimilarity;
@@ -38,7 +37,7 @@ import project.utils.statistics.impl.MessageSimilarity_Impl;
 @RemoteBinding(jndiBinding="MessageLinkProcessor")
 @Stateful
 @CacheConfig(removalTimeoutSeconds=18000L)
-public class MessageLinkProcessor extends ConnectionManager implements MessageLinkProcessorMBean, Runnable {
+public class MessageLinkProcessor extends ConnectionManagerMysqlImpl implements MessageLinkProcessorMBean, Runnable {
 	
 	private static final String WORD_DB_DELIMITER = ";";
 	private static final String WORD_STRENGTH_DELIMITER = ":";

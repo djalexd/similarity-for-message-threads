@@ -28,14 +28,14 @@ import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 
 import project.client.persistence.Message;
-import project.core.mbeans.database.ConnectionManager;
+import project.core.mbeans.database.ConnectionManagerMysqlImpl;
 import project.persistence.properties.MessageWithProperties;
 import project.utils.statistics.impl.Stemmer;
 
 @RemoteBinding(jndiBinding = "MessageProcessing")
 @Stateful
 @CacheConfig(removalTimeoutSeconds=18000L)
-public class MessageProcessing extends ConnectionManager implements
+public class MessageProcessing extends ConnectionManagerMysqlImpl implements
 		MessageProcessingMBean, Runnable {
 
 	//

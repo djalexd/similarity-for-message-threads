@@ -24,7 +24,7 @@ import project.client.persistence.MessageBoard;
 import project.client.persistence.MessageThread;
 import project.client.persistence.User;
 import project.client.persistence.Word;
-import project.core.mbeans.database.ConnectionManager;
+import project.core.mbeans.database.ConnectionManagerMysqlImpl;
 import project.persistence.properties.MessageWithProperties;
 import project.utils.statistics.impl.Stemmer;
 
@@ -32,7 +32,7 @@ import project.utils.statistics.impl.Stemmer;
 @RemoteBinding(jndiBinding="PersistenceLoader")
 @SerializedConcurrentAccess
 @CacheConfig(removalTimeoutSeconds=18000L)
-public class PersistenceLoader extends ConnectionManager implements PersistenceLoaderMBean {
+public class PersistenceLoader extends ConnectionManagerMysqlImpl implements PersistenceLoaderMBean {
 	
 	private static final String WORD_DB_DELIMITER = ";";
 
