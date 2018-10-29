@@ -46,7 +46,7 @@ public class GadgetAddCrawler extends Composite {
 	private TextBox m_tbSleepPerPage;
 	
 	private CheckBox m_chkRoundRobin;
-	private CheckBox m_chkStartImediately;
+	private CheckBox m_chkStartImmediately;
 	
 	private Button   m_btnStartStop;
 	
@@ -199,9 +199,9 @@ public class GadgetAddCrawler extends Composite {
 		hPanel = new HorizontalPanel ();
 		hPanel.addStyleName(STYLE_PANEL);
 
-		m_chkStartImediately = new CheckBox("Start now");
-		m_chkStartImediately.setChecked(true);
-		hPanel.add(m_chkStartImediately);
+		m_chkStartImmediately = new CheckBox("Start now");
+		m_chkStartImmediately.setChecked(true);
+		hPanel.add(m_chkStartImmediately);
 		mainPanel.add(hPanel);
 		
 		
@@ -228,7 +228,7 @@ public class GadgetAddCrawler extends Composite {
 								  				  m_tbSleepPerThread.getText(), 
 								  				  m_tbSleepPerPage.getText(),  
 								  				  m_chkRoundRobin.isChecked(), 
-								  				  m_chkStartImediately.isChecked(), 
+								  				  m_chkStartImmediately.isChecked(), 
 								  				  new AsyncCallback<String> () {
 
 								  						public void onFailure (Throwable t) {
@@ -331,7 +331,7 @@ public class GadgetAddCrawler extends Composite {
 			
 			m_lbCrawlerType.setEnabled(false);
 			m_tbCrawlerName.setEnabled(false);
-			m_chkStartImediately.setVisible(false);
+			m_chkStartImmediately.setVisible(false);
 			m_chkRoundRobin.setEnabled(false);
 			m_btnStartStop.setVisible(true);
 			
@@ -339,7 +339,7 @@ public class GadgetAddCrawler extends Composite {
 			
 			m_lbCrawlerType.setEnabled(true);
 			m_tbCrawlerName.setEnabled(true);
-			m_chkStartImediately.setVisible(true);
+			m_chkStartImmediately.setVisible(true);
 			m_chkRoundRobin.setEnabled(true);
 			m_btnStartStop.setVisible(false);
 		}
